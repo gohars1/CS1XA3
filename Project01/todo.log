@@ -1,0 +1,5 @@
+/home/gohars1/CS1XA3/todo2.txt:2:this if file2 #TODO
+/home/gohars1/CS1XA3/todo.txt:1:Hi this is a line with #TODO
+/home/gohars1/CS1XA3/todo.txt:2:This is a different line with #TODO
+/home/gohars1/CS1XA3/todo.txt:4:zaggaza #TODO
+/home/gohars1/CS1XA3/Project01/project_analyze.sh:29:		grep -Rn '#TODO' ~/CS1XA3 > todo.log

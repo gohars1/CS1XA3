@@ -1,0 +1,5 @@
+chin
+dog
+apple
+human
+chicken
