@@ -1,0 +1,40 @@
+#!/bin/bash
+
+echo "Hi User, may I ask what your name is?" #Prints this text to the screen
+
+read var1 #Prompts user input
+
+echo "Nice to meet you $var1, choose a number"
+echo " 1 - File Type Count "
+echo " 2 - TODO log "
+echo " 3 - play hangman! " # Simply prints this text to the screen
+
+read var2 #Prompts user input
+
+	if [ "$var2" == "1" ]; then
+		echo -n "Number of HTML Files: "
+		ls -R /home/gohars1/CS1XA3 | grep -c ".html"
+		echo -n "Number of CSS Files: "
+		ls -R /home/gohars1/CS1XA3 | grep -c ".css"
+		echo -n "Number of Javascript Files: "
+		ls -R /home/gohars1/CS1XA3 | grep -c ".jss"
+		echo -n "Number of Haskell Files: "
+		ls -R /home/gohars1/CS1XA3 | grep -c ".hs"
+		echo -n "Number of Python Files: "
+		ls -R /home/gohars1/CS1XA3 | grep -c ".py"
+		echo -n "Number of Bash Script Files: "
+		ls -R /home/gohars1/CS1XA3 | grep -c ".sh" # This body of code is a sequence of similar instructions, but each line for a different file type
+							   # First the script echos "Number of _ files" and the next command lists all the files in each directory
+							   # It then searches for an ending of a certain file extension, and uses the -c flag to count the number found
+
+	elif [ "$var2" == "2" ]; then
+
+		grep -Rn '#TODO' ~/CS1XA3 > todo.log  #This searches the CS1XA3 repo for lines in files that contain '#TODO' and redirects the output to a file todo.log
+
+	elif [ "$var2" == "3" ]; then
+		words=`shuf -n 1 words.txt 
+		python Hangman.py "$words"
+	else
+		echo "Please execute again"
+	fi
+
