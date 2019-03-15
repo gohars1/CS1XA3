@@ -5,5 +5,5 @@ I used the following template: http://www.thomashardy.me.uk/free-responsive-html
 # Tools <h2>
 For the Website I used HTML, CSS and Javascript. The majority of what I edited in the above templates 
 were HTML and CSS.\ The Javascript was provided by the template I referenced above "stylish-portfolio". \ 
-The Javascript allows for the button/ button scroll functionality. I did remove \
+The Javascript allows for the button/ button scroll functionality. 
 I did remove some of the buttons and functionality that was on the original template.
