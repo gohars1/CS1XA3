@@ -20,4 +20,5 @@ root = "e/gohars1/"
 
 urlpatterns = [
     path(root + 'twittersearch/', include('twittersearch.urls')),
+    path(root + 'userAuthapp/', include('userAuthapp.urls'))
 ]
