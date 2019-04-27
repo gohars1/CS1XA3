@@ -15,10 +15,15 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+# from django.conf.urls.static import static
+from django.conf import settings
+from django.templatetags.static import static
+from django.views.generic import TemplateView
 
-root = "e/gohars1/"
+root = ""
 
 urlpatterns = [
     path(root + 'twittersearch/', include('twittersearch.urls')),
-    path(root + 'userAuthapp/', include('userAuthapp.urls'))
-]
+    path(root + 'userAuthapp/', include('userAuthapp.urls')),
+] 

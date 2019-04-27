@@ -32,13 +32,14 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'twittersearch.apps.TwittersearchConfig',
-    'userAuthapp.apps.UserAuthappConfig',
+    'userAuthapp.apps.UserauthappConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_extensions',
 ]
 
 MIDDLEWARE = [
@@ -119,10 +120,11 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
-STATIC_URL = '/'
+STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
-	"/home/gohars1/CS1XA3/public_html/"
-
+    "/mnt/c/Users/Senan Gohar/Desktop/Rizq/django_project/templates/",
+    # paths to collect static files from
 ]
-STATIC_ROOT = "/home/gohars1/CS1XA3/django_project/static/"
+STATIC_ROOT = "/mnt/c/Users/Senan Gohar/Desktop/Rizq/django_project/static"
+    # directory to store static files after colleted 

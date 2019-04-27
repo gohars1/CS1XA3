@@ -1,140 +1,129 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <title>Twitter</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="CHANGE ME">
-    <meta name="keywords" content="CHANGE ME">
-    <meta name="author" content="CHANGE ME">
-    <!-- Load jquery, bootstrap -->
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    <!-- Custom CSS -->
-    <!-- <link rel="stylesheet" type="text/css" href="styles.css"> -->
-    <style>
-        #exampleFormControlSelect1 {
-            width: 40%;
-        }
-        #exampleFormControlInput1 {
-            width: 40%;
-        }
-        #segment {
-            margin-top: 5%
-        }
-        #custom-div {
-            border: 2px solid red;
-            border-radius: 5px;
-        }   
-        #navbar-brand {
-            color: white;
-        }
-    </style>
-    <!-- Custom CSS End -->
-</head>
-<body>
+    <head>
+        <title>Twitter</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="CHANGE ME">
+        <meta name="keywords" content="CHANGE ME">
+        <meta name="author" content="CHANGE ME">
+        <!-- Load jquery, bootstrap -->
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        <!-- Custom CSS -->
+        <!-- <link rel="stylesheet" type="text/css" href="styles.css"> -->
+        <style>
+            #keyword {
+                width: 40%;
+            }
+            #date-time {
+                width: 40%;
+            }
+            #sch-country {
+                width: 40%;
+            }
+            #segment {
+                margin-top: 5%
+            }
+            #custom-div {
+                border: 2px solid red;
+                border-radius: 5px;
+            }   
+            #navbar-brand {
+                color: white;
+            }
+        </style>
+        <!-- Custom CSS End -->
+    </head>
+    <body>
 
-    <!-- Header -->
-    
-<nav class="navbar navbar-expand-lg navbar-light" style = "background-color: #38A1F3;">
-  <a class="navbar-brand" href="#">Navbar</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+        <!-- Header -->
+        
+        <nav class="navbar navbar-expand-lg navbar-light" style = "background-color: #38A1F3;">
+        <a class="navbar-brand" href="#">GeoTweet</a>
+        
+       
+        </nav>
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
-      </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Dropdown
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Something else here</a>
+        <div id = "segment">
         </div>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-      </li>
-    </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
-  </div>
-</nav>
-<div id = "segment">
-</div>
-<div align=" center ">
 
+        <div align="center">
         <form>
-                <div class="form-group" align = "center">
-                  <label for="exampleFormControlInput1">Keyword</label>
-                  <input class="form-control" id="exampleFormControlInput1" placeholder="Keyword">
-                </div>
-
-                <div class="form-group" align = "center">
-                        <label for="exampleFormControlInput1">Date</label>
-                        <input type="datetime-local" class="form-control" id="exampleFormControlInput1" placeholder="Date">
-                </div>
-
-                <div class="form-group" align = "center">
-                  <label for="exampleFormControlSelect1">Location</label>
-                  <select class="form-control" id="exampleFormControlSelect1">
-                    <option>Canada</option>
-                    <option>United States</option>
-                    <option>China</option>
-                    <option>India</option>
-                    
-                  </select>
-                </div>
-                
-                
-              </form>
-
-
-
-
-   <!-- <div id="twitter-search-form">
-        <select class="form-control" name="carlvo">Canada</option>
-            <option value="saab">United States</option>
-            <option value="opel">China</option>
-            <option value="audi">India</option>
-        </select> -->
-
-        <!-- <form>
             <div class="form-group">
-                list" form="carform">
-            <option value="vo<label for="formGroupExampleInput">Example label</label>
-                <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Example input">
+              <label for="exampleInputEmail1">Username</label>
+              <input  class="form-control" id="usefrm" aria-describedby="emailHelp" placeholder="Enter Username">
+            
             </div>
             <div class="form-group">
-                <label for="formGroupExampleInput2">Another label</label>
-                <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Another input">
+              <label for="exampleInputPassword1">Password</label>
+              <input type="password" class="form-control" id="passfrm" placeholder="Password">
             </div>
-        </form> -->
-    </div>
-</div>
+            
+            <button type="button" class="btn btn-outline-success" id ="signin-form">Signup</button>
+            <button type="button" class="btn btn-outline-success" id ="login-form">Login</button>
+          </form>
+          <div id = "response">
 
-    <div id = "segment">
-    </div>
+        </div>
+          </div>
 
-    <div align="center">
-        <blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">Did you know you can share a Tweet privately via Direct Message? Learn more! <a href="https://t.co/X0b8ip53tX">https://t.co/X0b8ip53tX</a></p>&mdash; Twitter Support (@TwitterSupport) <a href="https://twitter.com/TwitterSupport/status/806207281410883584?ref_src=twsrc%5Etfw">December 6, 2016</a></blockquote>
-        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>    
-    </div>
+        <div align="center">
+            <form>
+                <!-- <div class="form-group" align = "center">
+                    <label for="keyword">Keyword</label>
+                    <input type="email" class="form-control" id="keyword" placeholder="Keyword">
+                </div>
+                <div class="form-group" align = "center">
+                    <label for="date-time">Date</label>
+                    <input type="datetime-local" class="form-control" id="date-time" placeholder="Date">
+                </div> -->
+                <div class="form-group" align = "center">
+                    <label for="sch-country">Location</label>
+                    <select class="form-control" id="sch-country">
+                        <option value="23424775">Canada</option>
+                        <option value="23424977">United States</option>
+                        <option value="23424975">United Kingdom</option>
+                        <option value="23424819">France</option>       
+                    </select>
+                </div> 
+                <button align="right" type="button" class="btn btn-outline-success" id="submit-form">Submit</button>
+            </form>
 
-    <script src="index.js"></script>
+            <!-- <div class="form-group"> -->
+                <!-- <form>
+                    list" form="carform">
+                <option value="vo<label for="formGroupExampleInput">Example label</label>
+                    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Example input">
+                </div>
+                <div class="form-group">
+                    <label for="formGroupExampleInput2">Another label</label>
+                    <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Another input">
+                </div>
+            </form> -->
 
-</body>
+        </div>
+    
+
+        <div id = "segment">
+        </div>
+
+        <div id="tweets" align="center">
+            <blockquote class="twitter-tweet" data-lang="en">
+                <p lang="en" dir="ltr">Did you know you can share a Tweet privately via Direct Message? Learn more! 
+                    <a href="https://t.co/X0b8ip53tX">https://t.co/X0b8ip53tX</a>
+                </p>&mdash; Twitter Support (@TwitterSupport) 
+                <a href="https://twitter.com/TwitterSupport/status/806207281410883584?ref_src=twsrc%5Etfw">December 6, 2016</a>
+            </blockquote>
+            
+            <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>    
+        </div>
+        <div align="center">
+            <button  type="button" class="btn btn-outline-success" id="save-tweets">Save Tweets</button>
+        </div>
+        <script src="index.js"></script>
+
+    </body>
 </html>
