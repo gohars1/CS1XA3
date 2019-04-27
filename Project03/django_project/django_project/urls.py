@@ -21,7 +21,7 @@ from django.conf import settings
 from django.templatetags.static import static
 from django.views.generic import TemplateView
 
-root = ""
+root = "e/gohars1/"
 
 urlpatterns = [
     path(root + 'twittersearch/', include('twittersearch.urls')),

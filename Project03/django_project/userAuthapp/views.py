@@ -1,59 +1,88 @@
 from django.shortcuts import render
-
 from django.http import HttpResponse, JsonResponse
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login
+from .models import UserInfo, TweetsTable
 import json
-# Create your views here.
-from .models import UserInfo
 
 def add_user(request):
     
-    
-    #json_req = json.loads(request.body)
-    
     uname = request.GET.get('username','')
     passw = request.GET.get('password','')
-    print(uname,passw)
+    print(uname, passw)
 
     if uname != '':
         user = User.objects.create_user(username=uname, password=passw)
+
         login(request,user)
-        print(user)
-        print("Check the laaaaaaaag")
-        return JsonResponse({'status':'LoggedIn'})
+        return JsonResponse({
+            "status":"OK"
+        })
 
     else:
-        print("Damnit!")
-        return JsonResponse({'status':'LoggedOut'})
+        return JsonResponse({
+            "status":"FAIL"
+        })
 
 def login_user(request):
     
-   # json_req = json.loads(request.body)
     uname = request.GET.get('username','')
     passw = request.GET.get('password','')
-    print(uname,passw)
-    user = authenticate(username=uname,password=passw)
-    print(user)
+
+    user = authenticate(request,username=uname,password=passw)
+
     if user is not None:
         login(request,user)
-        print("dope")
         return JsonResponse({
-            'status':'LoggedIn'
-            })
+            "status":"OK"
+        })
     else:
-        print("cmmann dood")
-        return JsonResponse({'status':'LoginFailed'})
+        return JsonResponse({
+            "status":"FAIL"
+        })
 
 def user_info(request):
     
     if not request.user.is_authenticated:
-        print("Good")
-        return JsonResponse({'status':'LoggedOut'})
+        return JsonResponse({
+            "status":"OK"
+        })
     else:
         # do something only a logged in user can do
-      #  print("Hello" + str(request.user.first_name))
-        print("Waaariq")
-        return JsonResponse({'status' : 'Hello' + request.user.first_name})
+        return JsonResponse({
+            "status":"OK",
+            "message":"Hello " + request.user.first_name
+        })
     
+def save_tweet(request):
+    
+    tweetString = request.GET.get('tweetJSON', '')
+    tweet = json.loads(tweetString)
+    tweetHtml = request.GET.get('tweetHTML', '')
+    uname = request.GET.get('username', '')
+    
+    returnStatusJson = {
+        "status":"OK"
+    }
 
+    tweetToSave = TweetsTable(tweetid=tweet['id'], tweet=tweetHtml, author=User.objects.filter(username=uname).first())    
+    tweetToSave.save()
+    # print(tweetToSave)
+
+    return JsonResponse(returnStatusJson)
+
+# stub - doesn't really do anything yet
+# use this to delete user data from table
+def delete_tweets(request):
+    uname = request.GET.get('username', '')
+    returnStatusJson = {
+        "status":"OK"
+    }
+
+    return JsonResponse(returnStatusJson)
+
+# stub - doesnt doe anything
+# this one is not added to the urls, add this one
+def get_user_tweets(request):
+    
+    return JsonResponse({"null":"nothing"})

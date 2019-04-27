@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'django_extensions',
 ]
 
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -120,11 +121,11 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
-STATIC_URL = '/static/'
+STATIC_URL = '/e/gohars1/static/'
 
 STATICFILES_DIRS = [
-    "/mnt/c/Users/Senan Gohar/Desktop/Rizq/django_project/templates/",
+    "/home/gohars1/CS1XA3/public_html/templates/",
     # paths to collect static files from
 ]
-STATIC_ROOT = "/mnt/c/Users/Senan Gohar/Desktop/Rizq/django_project/static"
+STATIC_ROOT = "/home/gohars1/CS1XA3/Project03/django_project/static/"
     # directory to store static files after colleted 
