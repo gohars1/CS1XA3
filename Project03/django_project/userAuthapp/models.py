@@ -1,6 +1,8 @@
 from django.db import models
 from django.contrib.auth.models import User
 # Create your models here.
+
+#Used simple django User Template for the UserInfo and UserInfoManager
 class UserInfoManager(models.Manager):
     def create_user_info(self, username, password, info):
         user = User.objects.create_user(username=username, password=password)
@@ -13,6 +15,7 @@ class UserInfo(models.Model):
     info = models.CharField(max_length=30)
     objects = UserInfoManager()
 
+#Created a model to save tweets to a table assigned per user
 class TweetsTable(models.Model):
     tweetid = models.BigIntegerField(primary_key=True)
     tweet = models.TextField()

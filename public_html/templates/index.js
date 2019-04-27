@@ -1,10 +1,10 @@
-
+// Initializing variables
 let loginValidate = {
     "username":"empty",
     "login-status":false
 };
 let tweets = [];
-
+//Calling the ajax functions, using clicks, etc.
 $(document).ready(function () {
 
     $('#submit-form').click(function (e) { 
@@ -31,7 +31,8 @@ $(document).ready(function () {
     });
 
 });
-
+// sends get request to backend, receives tweets based on location from twitter api
+// appends the 3 most popular
 function searchTwitter(query) {
     $.ajax({
         type: 'GET',
@@ -67,7 +68,7 @@ function searchTwitter(query) {
         }
     });
 }
-
+// converts tweet into Html
 function createTweet(jsonTweet){
     let tweetHtml = 
         '<blockquote class="twitter-tweet" data-lang="en">' +
@@ -79,7 +80,7 @@ function createTweet(jsonTweet){
 
     return tweetHtml;
 }
-
+// Saves tweets to User profile
 function selectionBtnListener(event) {
     if(loginValidate['login-status'] === true){
         for(let i = 0; i < 3; i++){
