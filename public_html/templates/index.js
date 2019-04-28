@@ -1,10 +1,10 @@
-// Initializing variables
+
 let loginValidate = {
     "username":"empty",
     "login-status":false
 };
 let tweets = [];
-//Calling the ajax functions, using clicks, etc.
+
 $(document).ready(function () {
 
     $('#submit-form').click(function (e) { 
@@ -20,6 +20,7 @@ $(document).ready(function () {
             "password":$('#passfrm').val()
         };
         loginuser(credentials);
+        // userinfo(credentials)
     });
 
     $('#add-user-form').click(function(e){
@@ -31,8 +32,7 @@ $(document).ready(function () {
     });
 
 });
-// sends get request to backend, receives tweets based on location from twitter api
-// appends the 3 most popular
+
 function searchTwitter(query) {
     $.ajax({
         type: 'GET',
@@ -68,7 +68,7 @@ function searchTwitter(query) {
         }
     });
 }
-// converts tweet into Html
+
 function createTweet(jsonTweet){
     let tweetHtml = 
         '<blockquote class="twitter-tweet" data-lang="en">' +
@@ -80,7 +80,7 @@ function createTweet(jsonTweet){
 
     return tweetHtml;
 }
-// Saves tweets to User profile
+
 function selectionBtnListener(event) {
     if(loginValidate['login-status'] === true){
         for(let i = 0; i < 3; i++){
@@ -99,7 +99,7 @@ function selectionBtnListener(event) {
         }
     }
     else{
-        alert('You have to log in!')
+        alert('You must Log in!')
     }
 }
 
@@ -115,12 +115,20 @@ function loginuser(query) {
         success: function(data) {
             console.log(data);
             if(data['status'] === 'OK') {
-                $('#validation').html("<h1>Success</h1>");
+                $('#user-tweets-section').html('<button style="margin-top: 5px;" type="button" class="btn btn-outline-success" id ="get-tweets-button">Show Saved Tweets</button>');
                 loginValidate['login-status'] = true;
                 loginValidate['username'] = query['username'];
+                $("#creds :input").prop("disabled", true);
+                $('#get-tweets-button').click( function(e){
+                    let credentials = {
+                        "username":$('#usefrm').val(),
+                        "password":$('#passfrm').val()
+                    };
+                    userinfo(credentials);
+                });
             }
             else {
-                $('#validation').html("<h1>Failed</h1>");
+                // $('#user-tweets-section').html('<h1 align"center">Please Login</h1>')
             }
         },
         fail: function(error) {
@@ -173,5 +181,35 @@ function savetweet(dataToSend){
         }
     })
 }
+
+function userinfo(query) {
+    $.ajax({
+        type: 'GET',
+        url: '/e/gohars1/userAuthapp/user_info/',
+        dataType: 'json',
+        data: query,
+        success: function(data) {
+            console.log(data);
+            
+            if(data['status'] == 'OK'){
+                $('#user-tweets-table').empty();
+                for(let i = 0; i < data['tweetdata'].length; i++){
+                    let trow = '<tr><th class="row">'+ data['tweetdata'][i] +'</th></tr>';
+                    console.log(trow);
+                    $('#user-tweets-table').append(trow);
+                    $('#exampleModal').modal('show');
+                }
+            }
+            else {
+                alert("Error Please Try Again!");
+            }
+
+        },
+        fail: function(error) {
+            console.log(error);
+        }
+    });
+} 
+
 
 

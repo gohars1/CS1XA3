@@ -43,17 +43,32 @@ def login_user(request):
 
 def user_info(request):
     
-    if not request.user.is_authenticated:
+    uname = request.GET.get('username','')
+    passw = request.GET.get('password','')
+
+    user = authenticate(request,username=uname,password=passw)
+
+    if user is not None:
+        tempUser = User.objects.filter(username=uname).first()
+        usertweets = TweetsTable.objects.filter(author=tempUser).all()
+
+        tweetData = []
+
+        for tweets in usertweets:
+            tweetData.append(tweets.tweet)
+
+        # print(tweetData)
+
         return JsonResponse({
-            "status":"OK"
+            "tweetdata" : tweetData,
+            "status" : "OK"
         })
     else:
-        # do something only a logged in user can do
         return JsonResponse({
-            "status":"OK",
-            "message":"Hello " + request.user.first_name
+            "tweetdata":[],
+            "status" : "FAIL"
         })
-    
+
 def save_tweet(request):
     
     tweetString = request.GET.get('tweetJSON', '')
@@ -86,3 +101,4 @@ def delete_tweets(request):
 def get_user_tweets(request):
     
     return JsonResponse({"null":"nothing"})
+

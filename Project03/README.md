@@ -30,3 +30,5 @@ and choose the country whose tweets you want to see. After that, click the submi
 and 3 tweets should appear.
 </br>
 5. If you want to, you can select the tweets and save them to your account.
+</br>
+6. After saving, you can select "Show Saved Tweets" and see the tweets that you saved!
