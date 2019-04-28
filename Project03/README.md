@@ -1,6 +1,6 @@
-#README for Project 03 <h1>
+# README for Project 03 <h1>
 
-#Running the Server! <h1>
+# Running the Server! <h1>
 </br>
 1. First things first, you must activate the correct python environment. The environment
 you want to run is to be found in ~/CS1XA3/Project03/. Once you are in this directory,
@@ -12,7 +12,7 @@ cd into the directory named "python_env" execute the command "source bin/activat
 3. Once the server is running you must type in the URL 
 "https://mac1xa3.ca/e/gohars1/static/index.html". Now you should be on the Webpage!
 
-#Using the app! <h1>
+# Using the app! <h1>
 </br>
 1. The purpose of the app is to select the 3 most trending tweets in the location which
 you select. You can do this whether you are logged in or not, but you can't save them to
