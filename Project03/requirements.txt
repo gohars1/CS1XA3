@@ -72,7 +72,7 @@ tweepy==3.7.0
 Twisted==17.9.0
 ufw==0.35
 unattended-upgrades==0.1
-urllib3==1.24.2
+urllib3==1.26.5
 virtualenv==15.1.0
 zope.component==4.3.0
 zope.event==4.2.0
